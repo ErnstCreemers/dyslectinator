@@ -13,7 +13,7 @@ I am dyslectic therefore i developed this library to show everyone how its like 
 ### Step 2. Add the selector.
 
 ```
-    <!-- Container element for EventLibrary -->
+    <!-- Use span as an inline text element. -->
     <span class="customShuffleClass">myword</span>
 ```
 
