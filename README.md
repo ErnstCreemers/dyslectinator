@@ -1,40 +1,39 @@
-# Dyslectionator
+# EVENT AGENDA.
 
-Library to let user experience dyslectiesheid
+I am dyslectic therefore i developed this library to show everyone how its like to have problems with reading comprehension.
 
-## Getting Started
+## Installing
 
-Getting started is easy, just follow the instructions.
+### Step 1. Include the library within the head.
 
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Download dyslectionator.js and include it in your ```head```.
-
-```html
-<head>
-  <script src="dyslectionator.js"></script>
-</head>
+```
+<script src="dyslectionator.js"></script>
 ```
 
-Initialize below your html code like
+### Step 2. Add the selector.
 
-```html
-<script>
-  dyslectionator.init({
-
-  });
-</script>
+```
+    <!-- Container element for EventLibrary -->
+    <span class="customShuffleClass">myword</span>
 ```
 
-## Extra configuration options
+### Step 3. Initialise library.
 
-**selector** Option to change the word which must be shuffled. Must be an id.
+```
+  <script>
+    dyslectinator.init({
+      selector: ".customShuffleClass"
+    });
+  </script>
 
-```html
-<script>
-  dyslectionator.init({
-    selector: "#shuffler"
-  });
-</script>
+```
+
+This should get you going. 
+
+## License:
+
+This Libary is free to use for everyone. (sharing is caring).
+
+## Credits:
+
+Ernst Creemers
