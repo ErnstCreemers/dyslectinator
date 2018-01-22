@@ -9,6 +9,10 @@ var dyslectinator = new(function () {
         });
     };
     
+    var _resetInitialWordsList = function (nodeItem) {
+        
+    };
+    
     var _defaultSettings = {
         selector: ".shuffle"
     };
@@ -34,6 +38,10 @@ var dyslectinator = new(function () {
     var _buttonclickListener = function () {
         document.getElementById("button4").addEventListener("click", function () {
             _iterateOverSelector();
+        });
+        
+        document.getElementById("button5").addEventListener("click", function () {
+            _resetInitialWordsList();
         });
     };
 
