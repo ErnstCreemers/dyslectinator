@@ -1,8 +1,33 @@
 var dyslectinator = new(function () {
         
     var initialWordsList = []; 
+    
+    var _defaultSettings = {
+        selector: ".shuffle",
+        shuffleButton: "shuffle-button",
+        resetButton : "reset-button",
+    };
 
-    var _createInitialWordsList = function (nodeItem) {
+    this.init = function (settings) {
+        //Merge the defaultsettings with settings
+        _mergeObjects(_defaultSettings, settings || {});
+        s = _defaultSettings;
+        
+        _createInitialWordsList();
+        
+        _addEventListeners();
+
+    };
+
+    var _mergeObjects = function (obj1, obj2) {
+        for (var attrname in obj1) {
+            if (obj2.hasOwnProperty(attrname)) {
+                obj1[attrname] = obj2[attrname];
+            }
+        }
+    };
+    
+     var _createInitialWordsList = function (nodeItem) {
         var fullwords = document.querySelectorAll(s.selector);
         for (var i = 0; i < fullwords.length; i++) {
            initialWordsList.push({
@@ -19,37 +44,13 @@ var dyslectinator = new(function () {
            node.innerHTML = word;
         }
     };
-    
-    var _defaultSettings = {
-        selector: ".shuffle"
-    };
 
-    this.init = function (settings) {
-        //Merge the defaultsettings with settings
-        _mergeObjects(_defaultSettings, settings || {});
-        s = _defaultSettings;
-        
-        _createInitialWordsList();
-        
-        //on buttonclick
-        _buttonclickListener();
-
-    };
-
-    var _mergeObjects = function (obj1, obj2) {
-        for (var attrname in obj1) {
-            if (obj2.hasOwnProperty(attrname)) {
-                obj1[attrname] = obj2[attrname];
-            }
-        }
-    };
-
-    var _buttonclickListener = function () {
-        document.getElementById("button4").addEventListener("click", function () {
+    var _addEventListeners = function () {
+        document.getElementById(s.shuffleButton).addEventListener("click", function () {
             _iterateOverSelector();
         });
         
-        document.getElementById("button5").addEventListener("click", function () {
+        document.getElementById(s.resetButton).addEventListener("click", function () {
             _resetInitialWordsList();
         });
     };
