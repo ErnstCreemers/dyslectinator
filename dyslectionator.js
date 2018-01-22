@@ -1,5 +1,14 @@
 var dyslectinator = new(function () {
+        
+    var initialWordsList = []; 
 
+    var _addToInitialWordsList = function (nodeItem) {
+        initialWordsList.push({
+            "node": nodeItem,
+            "word": nodeItem.innerHTML
+        });
+    };
+    
     var _defaultSettings = {
         selector: ".shuffle"
     };
@@ -11,6 +20,7 @@ var dyslectinator = new(function () {
 
         //on buttonclick
         _buttonclickListener();
+
     };
 
     var _mergeObjects = function (obj1, obj2) {
@@ -30,6 +40,7 @@ var dyslectinator = new(function () {
     var _iterateOverSelector = function () {
         var fullwords = document.querySelectorAll(s.selector);
         for (var i = 0; i < fullwords.length; i++) {
+            _addToInitialWordsList(fullwords.item(i));
             _shuffleWord(fullwords.item(i));
         }
     }
