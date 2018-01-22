@@ -10,7 +10,11 @@ var dyslectinator = new(function () {
     };
     
     var _resetInitialWordsList = function (nodeItem) {
-        
+       for (var i = 0; i < initialWordsList.length; i++) {
+           var node = initialWordsList[i].node;
+           var word = initialWordsList[i].word;
+           node.innerHTML = word;
+        }
     };
     
     var _defaultSettings = {
